@@ -1,3 +1,4 @@
+@include('reader.default')
 @include('main/head-bootstrap')
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +32,10 @@
               </li>
         </div>
     </nav>
+    <br />
+    <div class="container">
+        @yield('mainsection')
+    </div>
     <!-- Scripts -->
     @yield('bodybootstrap')
   </body>
