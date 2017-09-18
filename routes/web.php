@@ -18,6 +18,4 @@ Route::get('/', 'AppController@index');
 // We could use ::resource to create
 // an entire REST architecture. Keeping it
 // simple for this example.
-Route::get('/read/{url?}', function($url = null) {
-    $url = empty($url) ? env('TXT_DEFAULT_URL') : $url;
-});
+Route::post('/read', 'SeferReader@handleSubmit');

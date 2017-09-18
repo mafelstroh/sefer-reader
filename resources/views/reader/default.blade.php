@@ -6,11 +6,16 @@
   </div>
 </div>
 
-<form method="get" action=" {{url('read')}} ">
+  <script type="text/javascript">
+    console.log(jQuery("#urlvalidator"));
+    console.log(jQuery("#urlusr").val());
+  </script>
+
+<form method="post" action=" {{url('read')}} " id="urlvalidator">
     {{csrf_field()}}
 <div class="input-group">
   <span class="input-group-addon" id="url">URL</span>
-  <input type="url" name="url" id="url" class="form-control" placeholder="Enter an URL (if no URL entered, default will be: http://www.loyalbooks.com/download/text/Railway-Children-by-E-Nesbit.txt">
+  <input type="url" name="url" id="urlusr" class="form-control" placeholder="Enter an URL (if no URL entered, default will be: http://www.loyalbooks.com/download/text/Railway-Children-by-E-Nesbit.txt">
 </div>
   <br />
   <button type="submit" class="btn btn-primary">Go!</button>
