@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Leaving for now a default basic route.
+// @TODO: Create a welcome page.
+Route::get('/', 'AppController@index');
