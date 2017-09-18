@@ -25,6 +25,15 @@ class SeferReader extends Controller
             // and validate, generate the required
             // output <-- @TODO
             $wordArray = $this->_processWordOutput(trim(strtolower($contents)));
+            print_r(array_map(function ($n) {
+                for ($i=2; $i<=$n/2; $i++) {
+                    if (($n % $i) == 0) {
+                        return "$n is NOT PRIME!";
+                    }
+                    else
+                        return "$n is PRIME!";
+                }
+            }, $wordArray['wordOcurrencyTotal']));
 
             return "<h1>Total words: ".$wordArray['totalWords']."</h1>";
         }
@@ -70,13 +79,5 @@ class SeferReader extends Controller
         return $dataToReturn;
     }
 
-    private function _isPrimeNumber($n) {
-        for ($i=2; $i<$n; $i++) {
-            if (($n % $i) == 0) {
-                return true;
-            }
-            else
-                return false;
-        }
-    }
+
 }
