@@ -25,7 +25,7 @@ class SeferReader extends Controller
             // and validate, generate the required
             // output <-- @TODO
             $wordArray = $this->_processWordOutput(trim(strtolower($contents)));
-            print_r(array_map(function ($n) {
+            $arrayWithPrimeResults = array_map(function ($n) {
                 for ($i=2; $i<=$n/2; $i++) {
                     if (($n % $i) == 0) {
                         return "$n is NOT PRIME!";
@@ -33,9 +33,10 @@ class SeferReader extends Controller
                     else
                         return "$n is PRIME!";
                 }
-            }, $wordArray['wordOcurrencyTotal']));
+            }, $wordArray['wordOcurrencyTotal']);
 
-            return "<h1>Total words: ".$wordArray['totalWords']."</h1>";
+            return view('reader.results')
+                ->with('wordsAndWords', $wordArray['wordOcurrencyTotal']);
         }
         else {
             // Error
@@ -64,7 +65,7 @@ class SeferReader extends Controller
         ## TOTAL NUMBER OF WORDS (not separately, but overall)
         $totalWords      = count($totalWordsArray);
         // Sort it to make it nicer
-        ksort($totalWordsArray);
+        //asort($totalWordsArray);
 
         // Since we have an array separated by key (as words),
         // we can count the ocurrences of each word
