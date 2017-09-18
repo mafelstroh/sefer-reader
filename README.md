@@ -1,4 +1,4 @@
-Sefer Reader (book-reader) by [@mafelstroh](http://mafelstroh.io)
+Sefer Reader (book-reader) by [@mafelstroh](http://manuelfelipe.io)
 ===================
 
 :rocket: Check for updates a couple of hours later :rocket:
