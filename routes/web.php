@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Leaving for now a default basic route.
+// @TODO: Create a welcome page.
+Route::get('/', 'AppController@index');
+
+// We could use ::resource to create
+// an entire REST architecture. Keeping it
+// simple for this example.
+Route::post('/read', 'SeferReader@handleSubmit');
