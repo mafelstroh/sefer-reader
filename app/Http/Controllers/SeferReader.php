@@ -26,7 +26,7 @@ class SeferReader extends Controller
             // output <-- @TODO
             $wordArray = $this->_processWordOutput(trim(strtolower($contents)));
 
-            print_r($wordArray);
+            return "<h1>Total words: ".$wordArray['totalWords']."</h1>";
         }
         else {
             // Error
@@ -50,13 +50,33 @@ class SeferReader extends Controller
         // We also want it as an array to make use
         // of array_count_values to calculate the word
         // occurrency.
-        $wordArray = str_word_count($file_contents, 2);
-        $totalWords = count($wordArray);
-        $ksort($wordArray);
+        ## TOTAL WORDS
+        $totalWordsArray = str_word_count($file_contents, 2);
+        ## TOTAL NUMBER OF WORDS (not separately, but overall)
+        $totalWords      = count($totalWordsArray);
+        // Sort it to make it nicer
+        ksort($totalWordsArray);
+
         // Since we have an array separated by key (as words),
         // we can count the ocurrences of each word
-        $wordArrayCount = array_count_values($wordArray);
+        $wordArrayCount = array_count_values($totalWordsArray);
 
-        return $wordArrayCount;
+        $dataToReturn = [
+            'totalWords'         => $totalWords,
+            'totalWordsArray'    => $totalWordsArray,
+            'wordOcurrencyTotal' => $wordArrayCount,
+
+        ];
+        return $dataToReturn;
+    }
+
+    private function _isPrimeNumber($n) {
+        for ($i=2; $i<$n; $i++) {
+            if (($n % $i) == 0) {
+                return true;
+            }
+            else
+                return false;
+        }
     }
 }
