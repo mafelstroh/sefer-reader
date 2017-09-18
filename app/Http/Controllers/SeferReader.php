@@ -24,7 +24,9 @@ class SeferReader extends Controller
             // Redirect to method that will purge
             // and validate, generate the required
             // output <-- @TODO
-            var_dump($contents);
+            $wordArray = $this->_processWordOutput(trim(strtolower($contents)));
+
+            print_r($wordArray);
         }
         else {
             // Error
@@ -41,5 +43,20 @@ class SeferReader extends Controller
     */
     private function _validateUrl() {
         return (filter_var($url, FILTER_FLAG_HOST_REQUIRED ));
+    }
+
+    private function _processWordOutput($file_contents) {
+        // This will give us a count per-word
+        // We also want it as an array to make use
+        // of array_count_values to calculate the word
+        // occurrency.
+        $wordArray = str_word_count($file_contents, 2);
+        $totalWords = count($wordArray);
+        $ksort($wordArray);
+        // Since we have an array separated by key (as words),
+        // we can count the ocurrences of each word
+        $wordArrayCount = array_count_values($wordArray);
+
+        return $wordArrayCount;
     }
 }
