@@ -22,13 +22,10 @@
           <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">EMPTY</span></a>
+                <a class="nav-link" href="/">Home <span class="sr-only">EMPTY</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Description</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">About</a>
+                <a class="nav-link disabled" href="http://manuelfelipe.io/">About me</a>
               </li>
         </div>
     </nav>

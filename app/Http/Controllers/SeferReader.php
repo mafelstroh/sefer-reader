@@ -36,7 +36,9 @@ class SeferReader extends Controller
             }, $wordArray['wordOcurrencyTotal']);
 
             return view('reader.results')
-                ->with('wordsAndWords', $wordArray['wordOcurrencyTotal']);
+                ->with('wordsAndWords', $wordArray['wordOcurrencyTotal'])
+                ->with('wordsPrime',    $arrayWithPrimeResults)
+                ->with('wordCount',     $wordArray['totalWords']);
         }
         else {
             // Error
